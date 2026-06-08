@@ -15,6 +15,17 @@ I specialize in **mobile core networks** with deep focus on:
 
 ---
 
+## 🛠️ Tools & Technologies
+
+- Wireshark (Packet Analysis)
+- Linux Networking
+- TCP/IP Deep Understanding
+- Docker (Lab Simulation)
+- Kubernetes (5GC cloud-native concepts)
+- Diameter / GTP / HTTP2 protocols analysis
+
+---
+
 ## 🏗️ What I Work On
 
 I build and study:
@@ -46,12 +57,15 @@ I build and study:
 
 ## 📁 Featured Work
 
-- Telecom Core Knowledge Base
-- EPC / 5GC Virtual Lab
-- Real Incident Case Studies
-- War Room Simulations
-- Vendor Architecture Design
-- Interview Preparation Pack
+- Telecom Core Knowledge Base  
+- EPC / 5GC Virtual Lab  
+- Real Incident Case Studies  
+- War Room Simulations  
+- Vendor Architecture Design  
+- Interview Preparation Pack  
+
+👉 Main Knowledge Base:  
+https://github.com/packetalchemy/packetalchemy-telecom-notes
 
 ---
 
@@ -67,3 +81,5 @@ To build and understand **real operator-grade telecom systems** and contribute t
 Telecom Core Engineering | EPC | 5G Core | Network Architecture | Troubleshooting
 
 ---
+
+> Focused on bridging the gap between telecom theory and real-world operator networks.
