@@ -1,25 +1,69 @@
-# Hi, I'm Reza 👋
+# 👋 Hi, I'm PacketAlchemy
 
-Telecom Engineer with 20+ years of experience in Mobile Core Networks.
+## 🧠 Telecom Core Network Engineer
 
-## Areas of Interest
+I specialize in **mobile core networks** with deep focus on:
 
-- LTE / EPC
-- 5G Core
-- PS Core Networks
-- DNS in Mobile Networks
-- Roaming & Interworking
-- Cloudflare Workers
-- Python Automation
-- Network Troubleshooting
+- LTE / EPC Architecture
+- 5G Core (5GC) & SBA design
+- GTP / Diameter / HTTP2 signaling
+- DNS-based routing in telecom systems
+- Charging systems (OCS / CHF)
+- Network slicing (eMBB / URLLC / mMTC)
+- Vendor-style network architecture
+- Real-world troubleshooting & incident analysis
 
-## Current Projects
+---
 
-- Telecom automation scripts
-- Cloudflare Worker experiments
-- DNS tools for mobile networks
-- LTE / 5G learning notes
+## 🏗️ What I Work On
 
-## Contact
+I build and study:
 
-📧 packetalchemy@gmail.com
+- 📶 Core network architectures (EPC & 5GC)
+- 🧪 Virtual telecom lab simulations
+- 🚨 Real-world outage case studies
+- 📡 Packet-level analysis (Wireshark mindset)
+- 🏢 Operator-level network design
+- 🔥 War room incident scenarios
+- 🎯 Senior-level telecom troubleshooting
+
+---
+
+## 🧠 Engineering Philosophy
+
+> “A telecom network is not a set of nodes — it is a distributed decision system operating in real time.”
+
+---
+
+## 🚀 Current Focus
+
+- 5G Core evolution & interworking (EPC ↔ 5GC)
+- Carrier-grade network design (99.999% availability)
+- Cloud-native telecom architecture
+- Advanced troubleshooting methodologies
+
+---
+
+## 📁 Featured Work
+
+- Telecom Core Knowledge Base
+- EPC / 5GC Virtual Lab
+- Real Incident Case Studies
+- War Room Simulations
+- Vendor Architecture Design
+- Interview Preparation Pack
+
+---
+
+## 🎯 Goal
+
+To build and understand **real operator-grade telecom systems** and contribute to large-scale mobile network architectures.
+
+---
+
+## 👤 Contact
+
+**PacketAlchemy**  
+Telecom Core Engineering | EPC | 5G Core | Network Architecture | Troubleshooting
+
+---
