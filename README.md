@@ -1,16 +1,25 @@
-## Hi there 👋
+# Hi, I'm Reza 👋
 
-<!--
-**packetalchemy/PacketAlchemy** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Telecom Engineer with 20+ years of experience in Mobile Core Networks.
 
-Here are some ideas to get you started:
+## Areas of Interest
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- LTE / EPC
+- 5G Core
+- PS Core Networks
+- DNS in Mobile Networks
+- Roaming & Interworking
+- Cloudflare Workers
+- Python Automation
+- Network Troubleshooting
+
+## Current Projects
+
+- Telecom automation scripts
+- Cloudflare Worker experiments
+- DNS tools for mobile networks
+- LTE / 5G learning notes
+
+## Contact
+
+📧 packetalchemy@gmail.com
