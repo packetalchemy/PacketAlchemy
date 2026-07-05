@@ -1,0 +1,17 @@
+---
+title: "Understanding 5G Core Architecture"
+description: "Deep dive into AMF, SMF, UPF and service-based architecture"
+date: "2026-07-04"
+---
+
+## Introduction
+
+5G Core introduces a service-based architecture...
+
+## AMF Role
+
+AMF handles registration and mobility...
+
+## SMF Role
+
+SMF manages session lifecycle...

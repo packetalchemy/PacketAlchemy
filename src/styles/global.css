@@ -36,3 +36,116 @@ body::before {
 .animate-fade-in {
   animation: fade-in 0.8s ease-out;
 }
+
+/* ===== PacketAlchemy Background ===== */
+
+body {
+  background: #0b0f17;
+  color: white;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+
+  background:
+    radial-gradient(circle at top left,
+      rgba(59,130,246,.18),
+      transparent 35%),
+
+    radial-gradient(circle at bottom right,
+      rgba(14,165,233,.12),
+      transparent 40%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+
+  mask-image: radial-gradient(circle, white 40%, transparent 100%);
+}
+
+/* ---------- Smooth Scroll ---------- */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ---------- Background ---------- */
+
+body {
+    background: #0b0f17;
+    color: white;
+}
+
+/* Glow */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background:
+        radial-gradient(circle at 10% 20%,
+            rgba(37,99,235,.18),
+            transparent 35%),
+
+        radial-gradient(circle at 90% 80%,
+            rgba(56,189,248,.12),
+            transparent 40%);
+}
+
+/* Grid */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -1;
+
+    background-image:
+
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+
+    background-size: 40px 40px;
+
+    mask-image:
+        radial-gradient(circle, white 35%, transparent 100%);
+}
+
+/* Card */
+
+.card {
+
+    background: rgba(17,24,39,.55);
+
+    backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255,255,255,.06);
+
+    transition: .35s;
+}
+
+.card:hover {
+
+    transform: translateY(-6px);
+
+    border-color: rgb(59 130 246);
+}

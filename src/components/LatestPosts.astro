@@ -1,0 +1,63 @@
+---
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+
+posts.sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+
+const latest = posts.slice(0, 3);
+---
+
+<section class="max-w-6xl mx-auto px-8 py-20">
+
+  <div class="flex items-center justify-between">
+
+    <h2 class="text-3xl font-bold">
+      Latest Articles
+    </h2>
+
+    <a
+      href="/blog"
+      class="text-blue-400 hover:text-blue-300 transition"
+    >
+      View all →
+    </a>
+
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-8 mt-10">
+
+    {
+      latest.map((post) => (
+
+        <a
+          href={`/blog/${post.id}/`}
+          class="group rounded-2xl border border-gray-800 bg-[#111827]/70 p-7 hover:border-blue-500 hover:-translate-y-1 transition-all duration-300"
+        >
+
+          <div class="text-xs uppercase tracking-widest text-blue-400">
+            {post.data.pubDate.toLocaleDateString()}
+          </div>
+
+          <h3 class="text-2xl font-bold mt-4 group-hover:text-blue-400 transition">
+            {post.data.title}
+          </h3>
+
+          <p class="text-gray-400 mt-4">
+            {post.data.description}
+          </p>
+
+          <div class="mt-8 text-blue-400 font-semibold">
+            Read →
+          </div>
+
+        </a>
+
+      ))
+    }
+
+  </div>
+
+</section>

@@ -1,13 +1,16 @@
 ---
-import "../styles/global.css";
-
-import Navbar from "../components/Navbar.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "../components/Hero.astro";
 import Features from "../components/Features.astro";
+import LatestPosts from "../components/LatestPosts.astro";
 ---
 
-<div class="min-h-screen bg-[#0b0f17] text-white">
-  <Navbar />
+<MainLayout title="PacketAlchemy">
+
   <Hero />
+
   <Features />
-</div>
+  
+  <LatestPosts />
+
+</MainLayout>
