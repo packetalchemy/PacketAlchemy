@@ -1,114 +1,107 @@
 ---
-import { Image } from 'astro:assets';
+import MainLayout from '../../layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
-import Header from '../../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const posts = await getCollection('blog');
+posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const featured = posts[0];
+const rest = posts.slice(1);
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<MainLayout title="Blog | PacketAlchemy">
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute -right-64 -top-64 w-[500px] h-[500px] rounded-full bg-blue-600/10 blur-[150px]"></div>
+    <div class="relative max-w-5xl mx-auto px-6 md:px-10 pt-28 pb-12">
+      <div class="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-1.5 text-xs text-blue-300 mb-6">
+        <span class="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+        {posts.length} Articles
+      </div>
+      <h1 class="text-4xl md:text-5xl font-black leading-tight tracking-tight">
+        Technical
+        <span class="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent"> Blog</span>
+      </h1>
+      <p class="text-gray-400 mt-4 text-lg max-w-2xl">
+        Deep dives into telecom protocols, troubleshooting guides, and engineering insights.
+      </p>
+    </div>
+  </section>
+
+  <!-- Featured Post -->
+  {featured && (
+    <section class="max-w-5xl mx-auto px-6 md:px-10 pb-8">
+      <a
+        href={`/blog/${featured.id}/`}
+        class="block group rounded-2xl border border-white/5 bg-gradient-to-br from-blue-600/10 via-white/[0.02] to-cyan-600/5 p-8 md:p-10 hover:border-blue-500/30 transition-all duration-300"
+      >
+        <div class="flex items-center gap-3 mb-4">
+          <span class="px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest bg-blue-500/20 text-blue-300 rounded-md">Featured</span>
+          <span class="text-xs text-gray-500 font-mono">
+            {featured.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+          </span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-bold group-hover:text-blue-400 transition-colors">
+          {featured.data.title}
+        </h2>
+        <p class="text-gray-400 mt-3 max-w-3xl leading-relaxed">
+          {featured.data.description}
+        </p>
+        <div class="flex flex-wrap gap-2 mt-5">
+          {(featured.data as any).tags?.map((tag: string) => (
+            <span class="px-2.5 py-0.5 text-[11px] border border-white/10 rounded-md text-gray-400 bg-white/[0.02]">{tag}</span>
+          ))}
+        </div>
+        <div class="text-blue-400 text-sm mt-6 font-semibold group-hover:translate-x-1 transition-transform">Read article →</div>
+      </a>
+    </section>
+  )}
+
+  <!-- Posts Grid -->
+  <section class="max-w-5xl mx-auto px-6 md:px-10 pb-20">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {rest.map((post) => (
+        <a
+          href={`/blog/${post.id}/`}
+          class="group rounded-2xl border border-white/5 bg-white/[0.02] p-6 hover:border-blue-500/30 hover:-translate-y-1 transition-all duration-300 flex flex-col"
+        >
+          <!-- Date -->
+          <div class="text-xs text-gray-500 font-mono">
+            {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-lg font-bold mt-3 group-hover:text-blue-400 transition-colors leading-snug">
+            {post.data.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-gray-400 text-sm mt-3 leading-relaxed flex-1">
+            {post.data.description}
+          </p>
+
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-1.5 mt-4">
+            {(post.data as any).tags?.slice(0, 3).map((tag: string) => (
+              <span class="px-2 py-0.5 text-[10px] border border-white/10 rounded text-gray-500">{tag}</span>
+            ))}
+          </div>
+
+          <!-- Read More -->
+          <div class="text-blue-400 text-xs mt-4 font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+            Read more →
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Empty State (if only featured) -->
+    {rest.length === 0 && (
+      <div class="text-center py-16">
+        <p class="text-gray-500">More articles coming soon...</p>
+      </div>
+    )}
+  </section>
+
+</MainLayout>
